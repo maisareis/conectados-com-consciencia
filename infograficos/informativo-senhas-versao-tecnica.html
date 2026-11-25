@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise Técnica - Segurança de Senhas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 20px;
+            line-height: 1.6;
+            color: #e6e6e6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #0f3460;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #0c2461 0%, #1e3799 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(26, 32, 58, 0.8);
+            border-radius: 12px;
+            border-left: 5px solid #4a69bd;
+        }
+        
+        .section-title {
+            font-size: 26px;
+            color: #78e08f;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .subsection {
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(15, 52, 96, 0.6);
+            border-radius: 10px;
+        }
+        
+        .subsection h3 {
+            color: #4a69bd;
+            font-size: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .list-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: #c8d6e5;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .list-icon {
+            color: #78e08f;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #1a1a2e;
+        }
+        
+        th, td {
+            padding: 14px 18px;
+            text-align: left;
+            border-bottom: 1px solid #2d3746;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #0c2461 0%, #1e3799 100%);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background: rgba(42, 49, 68, 0.4);
+        }
+        
+        .warning-box {
+            background: rgba(231, 76, 60, 0.1);
+            border-left: 5px solid #e74c3c;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .warning-box h3 {
+            color: #e74c3c;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .success-box {
+            background: rgba(46, 204, 113, 0.1);
+            border-left: 5px solid #2ecc71;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .success-box h3 {
+            color: #2ecc71;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .info-box {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 5px solid #3498db;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .info-box h3 {
+            color: #3498db;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .link-box {
+            background: rgba(155, 89, 182, 0.1);
+            border-left: 5px solid #9b59b6;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .link-box h3 {
+            color: #9b59b6;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .website-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 5px;
+        }
+        
+        .footer {
+            background: #0c2461;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 26px;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⛓️ Análise Técnica - Quebra de Senhas</h1>
+            <p>Entenda os métodos, ferramentas e proteções em detalhes técnicos</p>
+        </div>
+        
+        <div class="main-content">
+            <!-- Fatores Técnicos -->
+            <div class="section">
+                <h2 class="section-title">🧮 Fatores que Influenciam o Tempo de Quebra</h2>
+                <div class="list-items">
+                    <div class="list-item">
+                        <span class="list-icon">•</span>
+                        <span><strong>Tamanho e entropia da senha</strong> - Complexidade real vs. aparente</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">•</span>
+                        <span><strong>Tipo de alfabeto usado</strong> - Letras minúsculas (26) vs. ASCII completo (94+)</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">•</span>
+                        <span><strong>Algoritmo de hash e salt</strong> - Proteção criptográfica aplicada</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">•</span>
+                        <span><strong>Método de ataque</strong> - Força bruta, dicionário, híbrido</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">•</span>
+                        <span><strong>Capacidade computacional</strong> - CPU vs. GPU vs. hardware especializado</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ferramentas -->
+            <div class="section">
+                <h2 class="section-title">🔧 Ferramentas de Quebra</h2>
+                
+                <div class="subsection">
+                    <h3>⚡ Hashcat</h3>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">🎯</span>
+                            <span>Otimizado para GPU - atinge bilhões de tentativas/segundo</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">🛠️</span>
+                            <span>Suporte a múltiplos modos: brute-force, mask, rule-based, hybrid</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">🚀</span>
+                            <span>Performance extrema com hardware moderno</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3>🐧 John the Ripper</h3>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">📚</span>
+                            <span>Foco em ataques por dicionário e regras</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">🔍</span>
+                            <span>Excelente para wordlists personalizadas e patterns</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">⚙️</span>
+                            <span>Rule-based attacks aplicam transformações inteligentes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exemplo de Máquina -->
+            <div class="section">
+                <h2 class="section-title">💻 Exemplo de Máquina para Quebra de Senha</h2>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Componente</th>
+                                <th>Especificação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>GPU</strong></td>
+                                <td>NVIDIA RTX 4090 (ou múltiplas)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CPU</strong></td>
+                                <td>AMD Threadripper 7980X</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RAM</strong></td>
+                                <td>128 GB DDR5</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Armazenamento</strong></td>
+                                <td>SSD NVMe (para performance em wordlists)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sistema Operacional</strong></td>
+                                <td>Kali Linux / Parrot OS</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Modos de Ataque -->
+            <div class="section">
+                <h2 class="section-title">💡 Estratégias de Ataque</h2>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Modo</th>
+                                <th>Mecanismo</th>
+                                <th>Casos de Uso</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Força Bruta</strong></td>
+                                <td>Testa todas combinações possíveis</td>
+                                <td>Senhas curtas sem padrão conhecido</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dicionário</strong></td>
+                                <td>Listas pré-compiladas (rockyou.txt, etc)</td>
+                                <td>Senhas comuns e vazamentos anteriores</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rule-based</strong></td>
+                                <td>Aplica transformações às palavras</td>
+                                <td>Variações de senhas conhecidas</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mask Attack</strong></td>
+                                <td>Define estrutura (?u?l?l?d?d)</td>
+                                <td>Senhas com padrão conhecido</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Híbrido</strong></td>
+                                <td>Dicionário + brute-force</td>
+                                <td>Palavras com sufixos/prefixos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Credential Stuffing -->
+            <div class="warning-box">
+                <h3>🔁 Sobre Senhas Reutilizadas e Credential Stuffing</h3>
+                <div class="list-items">
+                    <div class="list-item">
+                        <span class="list-icon">📊</span>
+                        <span><strong>80% dos ataques de autenticação</strong> envolvem credenciais vazadas</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">🤖</span>
+                        <span><strong>Ataques automatizados</strong> com ferramentas como:</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon" style="margin-left: 20px;">•</span>
+                        <span>OpenBullet</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon" style="margin-left: 20px;">•</span>
+                        <span>Sentry MBA</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon" style="margin-left: 20px;">•</span>
+                        <span>Snipr</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">⚡</span>
+                        <span>Usam senhas de vazamentos anteriores para invadir contas com login automatizado em massa</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ataques Avançados -->
+            <div class="section">
+                <h2 class="section-title">⚡ Ataques Avançados</h2>
+                
+                <div class="subsection">
+                    <h3>🔑 Pass-the-Hash</h3>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">🎯</span>
+                            <span>Uso direto do hash sem necessidade de quebrar a senha</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">🪟</span>
+                            <span>Comum em ambientes Windows com NTLM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3>🔫 Spraying de Senhas</h3>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">🎯</span>
+                            <span>Tenta senhas comuns em muitas contas</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">⏱️</span>
+                            <span>Evita bloqueios por tentativas excessivas</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3>🔍 Ataques Baseados em Contexto</h3>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">📋</span>
+                            <span>Uso de informações pessoais (OSINT)</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">📅</span>
+                            <span>Datas importantes, nomes de familiares, etc.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Algoritmos -->
+            <div class="section">
+                <h2 class="section-title">🧱 Algoritmos - Comparação Técnica</h2>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Algoritmo</th>
+                                <th>Tipo</th>
+                                <th>Hash/s (hardware moderno)</th>
+                                <th>Salt</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>MD5</strong></td>
+                                <td>Fraco</td>
+                                <td>~300 bilhões</td>
+                                <td>❌</td>
+                                <td>DEPRECIADO</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SHA-1</strong></td>
+                                <td>Fraco</td>
+                                <td>~180 bilhões</td>
+                                <td>❌</td>
+                                <td>VULNERÁVEL</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Algoritmos Modernos</strong></td>
+                                <td>Forte</td>
+                                <td>~100-200</td>
+                                <td>✅</td>
+                                <td>RECOMENDADO</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Impacto do Salt -->
+            <div class="success-box">
+                <h3>🧂 Impacto do Salt na Segurança</h3>
+                <div class="list-items">
+                    <div class="list-item">
+                        <span class="list-icon">❌</span>
+                        <span><strong>Sem salt:</strong> Rainbow tables podem ser usadas, reduzindo drasticamente o tempo</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">✅</span>
+                        <span><strong>Com salt único:</strong> Cada senha precisa ser atacada individualmente</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">🔒</span>
+                        <span><strong>Salt de 128+ bits:</strong> Recomendação atual para máxima segurança</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tempos -->
+            <div class="section">
+                <h2 class="section-title">⏳ Projeções de Tempo - Algoritmos Fracos</h2>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Senha</th>
+                                <th>Comprimento</th>
+                                <th>Espaço de Busca</th>
+                                <th>Tempo Estimado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>abc123</td>
+                                <td>6 chars</td>
+                                <td>62⁶ ≈ 56 bilhões</td>
+                                <td>< 1 segundo</td>
+                            </tr>
+                            <tr>
+                                <td>Br@sil2024</td>
+                                <td>10 chars</td>
+                                <td>94¹⁰ ≈ 5.4×10¹⁹</td>
+                                <td>Minutos</td>
+                            </tr>
+                            <tr>
+                                <td>T7!kM9@xL%Wq</td>
+                                <td>12 chars</td>
+                                <td>94¹² ≈ 4.8×10²³</td>
+                                <td>Semanas</td>
+                            </tr>
+                            <tr>
+                                <td>Z%$sD8^!kL03rT9x</td>
+                                <td>16 chars</td>
+                                <td>94¹⁶ ≈ 3.7×10³¹</td>
+                                <td>Séculos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Dicas Práticas -->
+            <div class="info-box">
+                <h3>🎯 Dicas Práticas</h3>
+                <div class="list-items">
+                    <div class="list-item">
+                        <span class="list-icon">🔍</span>
+                        <span>Senhas <strong>longas são mais importantes</strong> que complexidade excessiva</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">📊</span>
+                        <span><strong>Frases-senha</strong> são seguras e mais fáceis de lembrar</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">🔄</span>
+                        <span><strong>Nunca reuse senhas</strong> entre serviços diferentes</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">💡</span>
+                        <span><strong>Verificação em duas etapas</strong> protege mesmo com senha comprometida</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Verificação -->
+            <div class="success-box">
+                <h3>🔍 Verifique Seus Vazamentos</h3>
+                <div class="list-items">
+                    <div class="list-item">
+                        <span class="list-icon">🌐</span>
+                        <span>Confira se seu email apareceu em vazamentos conhecidos</span>
+                    </div>
+                </div>
+                <a href="https://haveibeenpwned.com" class="website-link" target="_blank">
+                    Have I Been Pwned
+                </a>
+            </div>
+            
+            <!-- Fontes -->
+            <div class="link-box">
+                <h3>📚 Fontes Técnicas</h3>
+                <a href="https://pages.nist.gov/800-63-3/sp800-63b.html" class="website-link" target="_blank">
+                    NIST SP 800-63B
+                </a>
+                <a href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html" class="website-link" target="_blank">
+                    OWASP Password Cheat Sheet
+                </a>
+                <a href="https://hashcat.net/hashcat/" class="website-link" target="_blank">
+                    Hashcat Benchmarks
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Material técnico para conscientização sobre segurança de senhas</strong></p>
+        </div>
+    </div>
+</body>
+</html>

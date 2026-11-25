@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist Segurança Digital</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --danger: #dc2626;
+            --warning: #d97706;
+            --success: #059669;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-700: #374151;
+            --gray-900: #111827;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--gray-100);
+            color: var(--gray-900);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem;
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.5rem;
+            color: var(--primary);
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .card-warning {
+            border-left-color: var(--warning);
+        }
+        
+        .card-success {
+            border-left-color: var(--success);
+        }
+        
+        .checklist {
+            list-style: none;
+        }
+        
+        .checklist li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+        }
+        
+        .checklist li:before {
+            content: "☐";
+            margin-right: 10px;
+            font-size: 1.2rem;
+            min-width: 20px;
+        }
+        
+        .checklist li.checked:before {
+            content: "☑";
+            color: var(--success);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .comparison-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: var(--gray-100);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .badge-success {
+            background-color: var(--success);
+            color: white;
+        }
+        
+        .badge-warning {
+            background-color: var(--warning);
+            color: white;
+        }
+        
+        .badge-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+        
+        .script-box {
+            background-color: var(--gray-200);
+            border-left: 4px solid var(--warning);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .script-box h4 {
+            margin-top: 0;
+            color: var(--warning);
+        }
+        
+        .step {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed var(--gray-200);
+        }
+        
+        .step:last-child {
+            border-bottom: none;
+        }
+        
+        .reminder-sticker {
+            background: white;
+            border: 2px solid var(--danger);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .reminder-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        footer {
+            background-color: var(--gray-700);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 8px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0.5rem 0;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .score-guide {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .score-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .score-item:last-child {
+            border-bottom: none;
+        }
+        
+        .score-range {
+            font-weight: bold;
+            color: var(--gray-700);
+        }
+        
+        .score-label {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .label-excellent {
+            background-color: var(--success);
+            color: white;
+        }
+        
+        .label-improve {
+            background-color: var(--warning);
+            color: white;
+        }
+        
+        .label-urgent {
+            background-color: var(--danger);
+            color: white;
+        }
+        
+        .divider {
+            height: 1px;
+            background-color: var(--gray-300);
+            margin: 1.5rem 0;
+            border: none;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            .reminder-box {
+                grid-template-columns: 1fr;
+            }
+            
+            .score-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ Checklist Segurança Digital</h1>
+            <p>Prevenção de Ataques</p>
+        </header>
+        
+        <section>
+            <h2>📋 Checklist de 5 Minutos - Hábitos de Senha</h2>
+            
+            <div class="card">
+                <h3>✅ Verificação Rápida Diária</h3>
+                
+                <h4>Navegador e Senhas:</h4>
+                <ul class="checklist">
+                    <li>Limpei senhas salvas do navegador pessoal</li>
+                    <li>Usei gerenciador de senhas para credenciais corporativas</li>
+                    <li>Senhas diferentes para pessoal vs trabalho</li>
+                </ul>
+                
+                <h4>Autenticação:</h4>
+                <ul class="checklist">
+                    <li>Verifiquei notificações MFA inesperadas</li>
+                    <li>Nenhum push de MFA aceito sem solicitação própria</li>
+                    <li>Configurei números de verificação no app de autenticação</li>
+                </ul>
+                
+                <h4>Contas:</h4>
+                <ul class="checklist">
+                    <li>Chequei logins recentes nas contas importantes</li>
+                    <li>Atualizei recuperação de senha onde necessário</li>
+                    <li>Revoguei acesso de apps não utilizados</li>
+                </ul>
+                
+                <div class="score-guide">
+                    <h3 style="text-align: center; margin-top: 0;"># Pontuação de Segurança</h3>
+                    
+                    <div class="score-item">
+                        <span class="score-range">8-9 checks</span>
+                        <span class="score-label label-excellent">Excelente!</span>
+                    </div>
+                    
+                    <div class="score-item">
+                        <span class="score-range">5-7 checks</span>
+                        <span class="score-label label-improve">Precisa melhorar</span>
+                    </div>
+                    
+                    <div class="score-item">
+                        <span class="score-range">0-4 checks</span>
+                        <span class="score-label label-urgent">Urgente - Revisar práticas</span>
+                    </div>
+                    
+                    <hr class="divider">
+                    
+                    <button class="btn" onclick="calculateSecurityScore()">
+                        Calcular Minha Pontuação de Segurança
+                    </button>
+                    
+                    <div id="scoreResult" style="display: none; margin-top: 1.5rem;">
+                        <!-- Resultado será mostrado aqui -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>📞 Script para Identificar Vishing</h2>
+            
+            <div class="card card-warning">
+                <h3>🎭 Possível Golpista Ligando:</h3>
+                <p><em>"Olá, sou [Nome] do suporte técnico da [Empresa]. Detectamos um problema crítico na sua conta e precisamos que você aceite a notificação do MFA que vamos enviar agora."</em></p>
+            </div>
+            
+            <div class="card card-success">
+                <h3>🛡️ Sua Resposta Segura:</h3>
+                
+                <div class="step">
+                    <h4>Passo 1: NÃO CONFIRME NADA</h4>
+                    <p><strong>Responda:</strong> <em>"Obrigado pela ligação. Pode me informar seu número de chamado e departamento?"</em></p>
+                </div>
+                
+                <div class="step">
+                    <h4>Passo 2: VERIFIQUE IDENTIDADE</h4>
+                    <p><strong>Responda:</strong> <em>"Vou desligar e retornar no número oficial da empresa para confirmar. Pode me passar o número correto?"</em></p>
+                </div>
+                
+                <div class="step">
+                    <h4>Passo 3: SINAIS DE ALERTA</h4>
+                    <ul>
+                        <li>❌ Pressa ou urgência artificial</li>
+                        <li>❌ Pedido para aceitar MFA durante ligação</li>
+                        <li>❌ Recusa em fornecer número de retorno</li>
+                        <li>❌ Ameaças de "conta será bloqueada"</li>
+                    </ul>
+                </div>
+                
+                <div class="step">
+                    <h4>Passo 4: AÇÃO FINAL</h4>
+                    <p><strong>Responda:</strong> <em>"Vou encerrar esta ligação e contactar o suporte pelos canais oficiais. Obrigado."</em></p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>📊 Comparativo Visual - Gerenciadores de Senha</h2>
+            
+            <div class="card">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Gerenciador</th>
+                            <th>Vantagens</th>
+                            <th>Limitações</th>
+                            <th>Recomendação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Bitwarden</strong></td>
+                            <td>Gratuito, código aberto, sincronização entre dispositivos</td>
+                            <td>Interface menos intuitiva, recursos avançados pagos</td>
+                            <td><span class="badge badge-success">Recomendado</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>KeePass</strong></td>
+                            <td>Totalmente gratuito, código aberto, arquivo local</td>
+                            <td>Sem sincronização automática, interface técnica</td>
+                            <td><span class="badge badge-warning">Avançado</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>1Password</strong></td>
+                            <td>Excelente UX, recursos avançados, bom para empresas</td>
+                            <td>Assinatura paga, menos personalizável</td>
+                            <td><span class="badge badge-warning">Premium</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Navegador</strong></td>
+                            <td>Integrado, conveniente</td>
+                            <td>Sincronização insegura, sem criptografia dedicada</td>
+                            <td><span class="badge badge-danger">Não Recomendado</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <section>
+            <h2>🚨 Lembretes Visuais</h2>
+            
+            <div class="reminder-box">
+                <div class="reminder-sticker">
+                    🚫 NUNCA aceite MFA sem você ter solicitado<br><br>
+                    📞 SEMPRE verifique ligações suspeitas<br><br>
+                    🔒 USE gerenciador de senhas, não navegador
+                </div>
+                
+                <div class="reminder-sticker">
+                    "NOTIFICAÇÃO MFA INESPERADA?<br><br>
+                    1. NÃO ACEITE<br>
+                    2. VERIFIQUE ORIGEM<br>
+                    3. REPORTE AO TI"
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>📝 Notas sobre KeePass:</h3>
+                <ul>
+                    <li><strong>Vantagem principal:</strong> Seus dados ficam apenas com você (arquivo local)</li>
+                    <li><strong>Recomendado para:</strong> Usuários técnicos que preferem controle total</li>
+                    <li><strong>Sincronização:</strong> Manual (precisa copiar arquivo entre dispositivos)</li>
+                    <li><strong>Segurança:</strong> Excelente - criptografia forte com arquivo local</li>
+                </ul>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Lembre-se: A segurança digital começa com você!</p>
+          
+        </footer>
+    </div>
+
+    <script>
+        // Adiciona funcionalidade para marcar/desmarcar itens da checklist
+        document.querySelectorAll('.checklist li').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('checked');
+            });
+        });
+
+        // Calcula a pontuação de segurança
+        function calculateSecurityScore() {
+            const checkedItems = document.querySelectorAll('.checklist .checked').length;
+            const totalItems = document.querySelectorAll('.checklist li').length;
+            const score = Math.round((checkedItems / totalItems) * 10);
+            
+            const scoreResult = document.getElementById('scoreResult');
+            
+            // Determina a classe e mensagem baseada na pontuação
+            let labelClass = '';
+            let message = '';
+            
+            if (score >= 8) {
+                labelClass = 'label-excellent';
+                message = 'Excelente!';
+            } else if (score >= 5) {
+                labelClass = 'label-improve';
+                message = 'Precisa melhorar';
+            } else {
+                labelClass = 'label-urgent';
+                message = 'Urgente - Revisar práticas';
+            }
+            
+            scoreResult.innerHTML = `
+                <div style="text-align: center; padding: 1rem; background: var(--gray-100); border-radius: 8px;">
+                    <h4 style="margin: 0 0 1rem 0;">Sua Pontuação:</h4>
+                    <div style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">${score}/10</div>
+                    <span class="score-label ${labelClass}" style="font-size: 1.1rem;">${message}</span>
+                    <p style="margin: 1rem 0 0 0; color: var(--gray-700);">
+                        Itens marcados: ${checkedItems} de ${totalItems}
+                    </p>
+                </div>
+            `;
+            
+            scoreResult.style.display = 'block';
+            
+            // Rolagem suave para o resultado
+            scoreResult.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conectados com Consciência - Agosto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e5c96 0%, #2d7db5 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .shield-icon {
+            font-size: 36px;
+        }
+        
+        .main-content {
+            padding: 40px;
+        }
+        
+        .intro-section {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #1e5c96;
+        }
+        
+        .intro-section h2 {
+            color: #1e5c96;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        
+        .intro-section p {
+            color: #333;
+            line-height: 1.6;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        
+        .checkmarks {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .checkmark {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .checkmark-icon {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .topic-section {
+            margin-bottom: 40px;
+        }
+        
+        .topic-title {
+            font-size: 24px;
+            color: #1e5c96;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .card h3 {
+            color: #1e5c96;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .bad-passwords {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .bad-password {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #ffe6e6;
+            border-radius: 6px;
+            color: #d32f2f;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .lock-icon {
+            font-size: 16px;
+        }
+        
+        .tips-section {
+            background: #fff8e1;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin-bottom: 30px;
+        }
+        
+        .tips-section h3 {
+            color: #f57f17;
+            font-size: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tips-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .tip {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .tip-check {
+            color: #4CAF50;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .fact-box {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2196F3;
+            margin-bottom: 30px;
+        }
+        
+        .fact-box h3 {
+            color: #1565c0;
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .fact-box p {
+            color: #333;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .challenge-box {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+            margin-bottom: 30px;
+        }
+        
+        .challenge-box h3 {
+            color: #e65100;
+            font-size: 16px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .option {
+            padding: 12px;
+            background: white;
+            border: 2px solid #ff9800;
+            border-radius: 6px;
+            color: #333;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .option:hover {
+            background: #fff3e0;
+        }
+        
+        .answer {
+            padding: 12px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+        }
+        
+        .answer.show {
+            display: block;
+        }
+        
+        .verification-box {
+            background: #f3e5f5;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #9c27b0;
+            margin-bottom: 30px;
+        }
+        
+        .verification-box h3 {
+            color: #6a1b9a;
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .verification-box p {
+            color: #333;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .link {
+            display: inline-block;
+            background: #9c27b0;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .link:hover {
+            background: #7b1fa2;
+        }
+        
+        .quote-box {
+            background: linear-gradient(135deg, #1e5c96 0%, #2d7db5 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 16px;
+            font-style: italic;
+            line-height: 1.8;
+        }
+        
+        .footer {
+            background: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .footer p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .footer strong {
+            color: #1e5c96;
+        }
+        
+        @media (max-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><span class="shield-icon">🛡️</span> Conectados com Consciência</h1>
+            <p>Edição #1 – Agosto | Tema: Senhas Seguras</p>
+        </div>
+        
+        <div class="main-content">
+            <!-- Intro Section -->
+            <div class="intro-section">
+                <h2>Por que falar de conscientização digital?</h2>
+                <p>Vivemos cada vez mais conectados. Trabalhamos, estudamos, fazemos compras, usamos redes sociais e trocamos mensagens — tudo isso online.</p>
+                <p>Nesse cenário, a conscientização digital se tornou essencial:</p>
+                <div class="checkmarks">
+                    <div class="checkmark">
+                        <span class="checkmark-icon">✔</span>
+                        <span>Proteger dados pessoais e profissionais</span>
+                    </div>
+                    <div class="checkmark">
+                        <span class="checkmark-icon">✔</span>
+                        <span>Prevenir ataques, fraudes e vazamentos</span>
+                    </div>
+                    <div class="checkmark">
+                        <span class="checkmark-icon">✔</span>
+                        <span>Criar uma cultura de responsabilidade digital no ambiente de trabalho</span>
+                    </div>
+                </div>
+                <p style="margin-top: 12px;"><strong>A transformação digital é irreversível. Mas ela só é segura se todos estiverem preparados.</strong></p>
+            </div>
+            
+            <!-- Main Topic -->
+            <div class="topic-section">
+                <h2 class="topic-title">🔐 Senhas Seguras</h2>
+                
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Ainda está usando "123456"?</h3>
+                        <p style="color: #666; font-size: 14px; margin-bottom: 12px;">A sua senha é como a chave da sua casa: se for fraca, qualquer um entra.</p>
+                        <h4 style="color: #d32f2f; font-size: 12px; margin-top: 12px; margin-bottom: 8px;">Senhas fracas comuns:</h4>
+                        <div class="bad-passwords">
+                            <div class="bad-password"><span class="lock-icon">🔓</span> senha123</div>
+                            <div class="bad-password"><span class="lock-icon">🔓</span> admin</div>
+                            <div class="bad-password"><span class="lock-icon">🔓</span> data de nascimento</div>
+                            <div class="bad-password"><span class="lock-icon">🔓</span> nome do pet + 2023</div>
+                        </div>
+                        <p style="color: #1e5c96; font-size: 13px; margin-top: 12px; font-weight: bold;">Se você se identificou... respira. Ainda dá tempo de mudar!</p>
+                    </div>
+                    
+                    <div class="tips-section">
+                        <h3>💡 Dica Rápida</h3>
+                        <div class="tips-list">
+                            <div class="tip">
+                                <span class="tip-check">✔</span>
+                                <span><strong>Use pelo menos 12 caracteres</strong></span>
+                            </div>
+                            <div class="tip">
+                                <span class="tip-check">✔</span>
+                                <span><strong>Misture</strong> letras maiúsculas, minúsculas, números e símbolos</span>
+                            </div>
+                            <div class="tip">
+                                <span class="tip-check">✔</span>
+                                <span><strong>Evite</strong> palavras conhecidas ou dados pessoais</span>
+                            </div>
+                            <div class="tip">
+                                <span class="tip-check">✔</span>
+                                <span><strong>Use um gerenciador</strong> (LastPass, Bitwarden, 1Password)</span>
+                            </div>
+                        </div>
+                        <p style="color: #666; font-size: 12px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #ffd54f;"><strong>Por que o gerenciador?</strong> Você não precisa memorizar senhas complexas — ele faz isso por você. Resultado: senhas fortes em todos os lugares, sem preguiça.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fact Box -->
+            <div class="fact-box">
+                <h3>🤯 Você Sabia?</h3>
+                <p>A senha "123456" ainda é a mais usada no mundo — apesar de ser quebrável em menos de 1 segundo.</p>
+                <p><strong>Isso mostra algo importante:</strong> conhecimento não é suficiente. As pessoas sabem que precisam de senhas fortes, mas não fazem. Por isso essa campanha existe: para transformar conhecimento em ação.</p>
+            </div>
+            
+            <!-- Challenge -->
+            <div class="challenge-box">
+                <h3>🧠 Desafio Rápido</h3>
+                <p style="color: #333; font-size: 14px; margin-bottom: 15px;">Qual dessas senhas é a mais segura?</p>
+                <div class="options">
+                    <div class="option" onclick="showAnswer()">A) Juliana2023</div>
+                    <div class="option" onclick="showAnswer()">B) @JuL!#9283*nã</div>
+                    <div class="option" onclick="showAnswer()">C) juliana123</div>
+                </div>
+                <div class="answer show">
+                    ✓ Resposta correta: B<br>
+                    A senha B tem 12+ caracteres, mistura tudo (maiúscula, minúscula, número, símbolo) e não usa dados pessoais. As outras? Fáceis de quebrar.
+                </div>
+            </div>
+            
+            <!-- Verification -->
+            <div class="verification-box">
+                <h3>⚠️ Verificação Rápida</h3>
+                <p><strong>Sua senha foi vazada?</strong> Descubra em:</p>
+                <p style="font-size: 16px; font-weight: bold; color: #9c27b0; margin: 10px 0;">haveibeenpwned.com</p>
+                <p>Insira seu email. Se aparecer em algum vazamento, troque a senha imediatamente. Não é paranoia — é prevenção.</p>
+            </div>
+            
+            <!-- Quote -->
+            <div class="quote-box">
+                "Uma boa senha protege mais que seus dados — protege sua paz."
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Te vemos na próxima edição!</strong></p>
+            <p>Fique ligado. Fique seguro. Fique consciente.</p>
+        </div>
+    </div>
+    
+    <script>
+        function showAnswer() {
+            const answer = document.querySelector('.answer');
+            answer.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

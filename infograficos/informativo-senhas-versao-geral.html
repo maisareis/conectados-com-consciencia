@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segurança de Senhas - Informativo Simplificado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .main-content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .subsection {
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .subsection h3 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .list-items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #555;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        
+        .list-icon {
+            color: #e74c3c;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e3f2fd;
+        }
+        
+        .warning-section {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .warning-section h3 {
+            color: #856404;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .steps-section {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .steps-section h3 {
+            color: #0c5460;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .step {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #bee5eb;
+        }
+        
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #0c5460;
+        }
+        
+        .action-section {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .action-section h3 {
+            color: #155724;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .action-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-align: left;
+        }
+        
+        .action-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #155724;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .tips-section {
+            background: #e2e3e5;
+            border-left: 5px solid #6c757d;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .tips-section h3 {
+            color: #383d41;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .help-section {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .help-section h3 {
+            color: #721c24;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .website-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .website-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .footer p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .header p {
+                font-size: 16px;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            th, td {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔐 INFORMATIVO DE SEGURANÇA DIGITAL</h1>
+            <p>Quanto tempo um hacker leva para quebrar sua senha?</p>
+        </div>
+        
+        <div class="main-content">
+            <!-- O que define a velocidade -->
+            <div class="section">
+                <h2 class="section-title">⚡ O QUE DEFINE A VELOCIDADE DO ATAQUE?</h2>
+                
+                <div class="subsection">
+                    <h3>🧩 1. COMPLEXIDADE DA SENHA</h3>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Senhas curtas e simples = alvo fácil</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Senhas longas com mistura de caracteres = mais seguras</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Frase-senha (combinação de palavras) é mais eficaz que palavra única</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3>💻 2. FERRAMENTAS DOS HACKERS</h3>
+                    <p style="margin-bottom: 10px; font-weight: 500;">Programas especializados testam:</p>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span><strong>Força bruta:</strong> Todas as combinações possíveis</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span><strong>Ataque de dicionário:</strong> Senhas comuns como "123456", "senha123"</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span><strong>Ataque híbrido:</strong> Combina palavras comuns com números/símbolos</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 10px; font-weight: 500;">Ferramentas comuns: Hashcat, John the Ripper</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>🖥️ 3. PODER DE PROCESSAMENTO</h3>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Computadores comuns: milhares de tentativas/segundo</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span><strong>Hardware avançado</strong> (ex: RTX 4090): <strong>bilhões</strong> de tentativas/segundo</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Senhas fracas podem cair em <strong>segundos</strong></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3>🔒 4. PROTEÇÃO DOS SITES</h3>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Sites armazenam senhas como "hashes" (versões embaralhadas)</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Algoritmos fracos (MD5, SHA-1) = risco alto</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Algoritmos fortes (bcrypt, argon2) = proteção eficaz</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tabela de tempos -->
+            <div class="section">
+                <h2 class="section-title">⏰ TEMPO ESTIMADO PARA QUEBRAR SENHAS</h2>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>SENHA</th>
+                                <th>TIPO</th>
+                                <th>TEMPO (hardware moderno)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>123456</td>
+                                <td>Números simples</td>
+                                <td><strong>Instantâneo</strong></td>
+                            </tr>
+                            <tr>
+                                <td>senha123</td>
+                                <td>Palavra comum + número</td>
+                                <td><strong>&lt; 1 segundo</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Flamengo2024</td>
+                                <td>Time + ano</td>
+                                <td><strong>~30 segundos</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Br@sil2024!</td>
+                                <td>Símbolo + palavra + número</td>
+                                <td><strong>~2 horas</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Gato#Lindo8</td>
+                                <td>Frase curta com símbolo</td>
+                                <td><strong>~1 dia</strong></td>
+                            </tr>
+                            <tr>
+                                <td>MeuCachorro@Corre9!</td>
+                                <td>Frase longa memorável</td>
+                                <td><strong>~5 anos</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Z%$sD8^!kL03rT9x</td>
+                                <td>Aleatória 16 caracteres</td>
+                                <td><strong>Séculos</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Perigo das senhas reutilizadas -->
+            <div class="warning-section">
+                <h3>🚨 PERIGO DAS SENHAS REUTILIZADAS</h3>
+                <p style="margin-bottom: 15px; font-weight: 500;"><strong>Credential Stuffing:</strong> Criminosos testam senhas vazadas em múltiplos sites</p>
+                
+                <div class="list-items">
+                    <div class="list-item">
+                        <span class="list-icon">📊</span>
+                        <span><strong>80%</strong> dos ataques usam credenciais vazadas</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">📊</span>
+                        <span><strong>65%</strong> das pessoas repetem senhas entre sites</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">⚠️</span>
+                        <span><strong>1 vazamento pode comprometer todas suas contas</strong></span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proteja-se em 4 passos -->
+            <div class="steps-section">
+                <h3>🛡️ PROTEJA-SE EM 4 PASSOS</h3>
+                
+                <div class="step">
+                    <div class="step-header">
+                        <span>✅</span>
+                        <span>PASSO 1: CRIE SENHAS LONGAS</span>
+                    </div>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Mínimo 12 caracteres</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Misture maiúsculas, minúsculas, números, símbolos</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Ex: "MinhaFamilia@Feliz2025!"</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">
+                        <span>✅</span>
+                        <span>PASSO 2: USE SENHAS ÚNICAS</span>
+                    </div>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Diferente para cada site importante</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Evite o "efeito dominó" em caso de vazamento</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">
+                        <span>✅</span>
+                        <span>PASSO 3: ATIVE VERIFICAÇÃO EM DUAS ETAPAS</span>
+                    </div>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>SMS, aplicativo autenticador ou biometria</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Proteção extra mesmo com senha roubada</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">
+                        <span>✅</span>
+                        <span>PASSO 4: USE GERENCIADOR DE SENHAS</span>
+                    </div>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Bitwarden, 1Password, KeePass</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Gera e armazena senhas fortes automaticamente</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Backup seguro essencial</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ação imediata -->
+            <div class="action-section">
+                <h3>🚨 AÇÃO IMEDIATA RECOMENDADA</h3>
+                
+                <div class="action-list">
+                    <div class="action-item">
+                        <span>🔍</span>
+                        <span><strong>VERIFIQUE</strong> se seu email foi vazado:</span>
+                    </div>
+                </div>
+                
+                <a href="https://haveibeenpwned.com" class="website-link" target="_blank">
+                    🔗 haveibeenpwned.com
+                </a>
+                
+                <div class="action-list" style="margin-top: 20px;">
+                    <div class="action-item">
+                        <span>🔄</span>
+                        <span><strong>TROQUE</strong> senhas repetidas entre sites</span>
+                    </div>
+                    <div class="action-item">
+                        <span>🔒</span>
+                        <span><strong>ATIVE 2FA</strong> no email principal e redes sociais</span>
+                    </div>
+                    <div class="action-item">
+                        <span>👀</span>
+                        <span><strong>MONITORE</strong> notícias sobre vazamentos (ex: LinkedIn, Yahoo, Cisco 2022)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dicas extras -->
+            <div class="tips-section">
+                <h3>💡 DICAS EXTRAS DE SEGURANÇA</h3>
+                <div class="list-items">
+                    <div class="list-item">
+                        <span class="list-icon">•</span>
+                        <span><strong>Senhas temporárias:</strong> Para sites menos importantes</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">•</span>
+                        <span><strong>Biometria:</strong> Use impressão digital/rosto quando disponível</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">•</span>
+                        <span><strong>Troca imediata:</strong> Após notícias de vazamentos</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">•</span>
+                        <span><strong>Frases-senha:</strong> "MeuFilhoNasceu@25DeMaio!" é melhor que "Mfn@25dm!"</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ajuda -->
+            <div class="help-section">
+                <h3>📞 PRECISA DE AJUDA?</h3>
+                <p>Entre em contato com o setor de TI da sua organização para:</p>
+                <div class="list-items">
+                    <div class="list-item">
+                        <span class="list-icon">•</span>
+                        <span>Configurar gerenciador de senhas</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">•</span>
+                        <span>Ativar autenticação em duas etapas</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">•</span>
+                        <span>Verificar segurança das suas contas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Lembre-se:</strong> Sua senha é a primeira linha de defesa. Invista alguns minutos em segurança agora para evitar anos de problemas depois! 🔒</p>
+        </div>
+    </div>
+</body>
+</html>

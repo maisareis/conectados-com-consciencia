@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conectados com Consciência - Agosto </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e5c96 0%, #2d7db5 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            padding: 40px;
+        }
+        
+        .intro-section {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #1e5c96;
+        }
+        
+        .intro-section h2 {
+            color: #1e5c96;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        
+        .intro-section p {
+            color: #333;
+            line-height: 1.6;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        
+        .topic-section {
+            margin-bottom: 30px;
+        }
+        
+        .topic-title {
+            font-size: 24px;
+            color: #1e5c96;
+            margin-bottom: 15px;
+        }
+        
+        .card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 20px;
+        }
+        
+        .card h3 {
+            color: #1e5c96;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .card p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .step {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .step-number {
+            background: #1e5c96;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .step-text {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .list-items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 10px 0;
+        }
+        
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .list-icon {
+            color: #d32f2f;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .error-box {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #d32f2f;
+            margin-bottom: 15px;
+        }
+        
+        .error-box h4 {
+            color: #c62828;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .error-box p {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        .tips-section {
+            background: #fff8e1;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin-bottom: 20px;
+        }
+        
+        .tips-section h3 {
+            color: #f57f17;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        .action-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .action-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .action-check {
+            color: #4CAF50;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .fact-box {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2196F3;
+            margin-bottom: 20px;
+        }
+        
+        .fact-box h3 {
+            color: #1565c0;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .fact-box p {
+            color: #333;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .link-box {
+            background: #f3e5f5;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #9c27b0;
+            margin-bottom: 20px;
+        }
+        
+        .link-box h3 {
+            color: #6a1b9a;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .link-box p {
+            color: #333;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .website {
+            font-size: 14px;
+            color: #9c27b0;
+            font-weight: bold;
+            font-family: monospace;
+            margin-top: 5px;
+            text-decoration: none;
+        }
+        
+        .website:hover {
+            text-decoration: underline;
+        }
+        
+        .quote-box {
+            background: linear-gradient(135deg, #1e5c96 0%, #2d7db5 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 16px;
+            font-style: italic;
+            line-height: 1.8;
+        }
+        
+        .footer {
+            background: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .footer p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .footer strong {
+            color: #1e5c96;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ Conectados com Consciência</h1>
+            <p>Edição Especial – Agosto Parte 2 | Caso Real: Cisco 2022</p>
+        </div>
+        
+        <div class="main-content">
+            <!-- Intro Section -->
+            <div class="intro-section">
+                <h2>O Que Aconteceu?</h2>
+                <p>Em maio de 2022, a <strong>Cisco </strong> — uma das maiores empresas de tecnologia do mundo, especialista em segurança de redes — foi invadida por criminosos.</p>
+                <p><strong>O mais surpreendente? Tudo começou com credenciais mal gerenciadas no navegador pessoal de um funcionário.</strong></p>
+            </div>
+            
+            <!-- How It Started -->
+            <div class="topic-section">
+                <h2 class="topic-title">🎯 Como Começou o Ataque</h2>
+                
+                <div class="card">
+                    <h3>Passo 1: O Erro da Sincronização de Senhas</h3>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>O funcionário tinha <strong>Google Chrome configurado para sincronizar senhas</strong></span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Suas <strong>credenciais corporativas Cisco estavam salvas no navegador</strong></span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Essas senhas sincronizavam automaticamente com sua <strong>conta Google pessoal</strong></span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Criminosos acessaram a conta Google pessoal → <strong>credenciais Cisco comprometidas</strong></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Passo 2: O Golpe do Vishing (Ligações Falsas)</h3>
+                    <p><strong>O problema:</strong> Havia MFA (autenticação em dois fatores). Criminosos não conseguiriam entrar só com a senha.</p>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Usaram <strong>vishing</strong>: ligações falsas se passando por suporte técnico</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Falavam em inglês com <strong>sotaques e dialetos variados</strong> para parecer legítimo</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Convenceram o funcionário a aceitar <strong>notificações de push do MFA</strong></span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Técnica: <strong>MFA fatigue</strong> — enviar múltiplos pedidos até a pessoa aceitar por cansaço</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Passo 3: Acesso Total à VPN</h3>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Criminosos conseguiram acesso à <strong>VPN corporativa da Cisco</strong></span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Inscreveram novos dispositivos no sistema de MFA da empresa</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Conseguiram <strong>autenticação bem-sucedida</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Erros Fatais -->
+            <div class="topic-section">
+                <h2 class="topic-title">⚠️ Os Erros Fatais</h2>
+                
+                <div class="error-box">
+                    <h4>❌ Erro #1: Credenciais Salvas no Navegador Pessoal</h4>
+                    <p>O funcionário tinha suas credenciais corporativas salvas no Google Chrome pessoal.</p>
+                    <p><strong>Por que isso é perigoso?</strong></p>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Se a conta Google é comprometida, as credenciais corporativas também são</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Navegadores sincronizam automaticamente com contas na nuvem</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Mistura vida pessoal com profissional de forma insegura</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="error-box">
+                    <h4>❌ Erro #2: Não Usar Gerenciador de Senhas Adequado</h4>
+                    <p>Em vez de um gerenciador dedicado (Bitwarden, 1Password), o funcionário contava com:</p>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Sincronização automática do navegador</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Armazenamento em conta pessoal</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Sem camada extra de proteção criptográfica</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="error-box">
+                    <h4>❌ Erro #3: Aceitar Chamadas de "Suporte Técnico"</h4>
+                    <p>O funcionário não verificou a identidade de quem ligava.</p>
+                    <div class="list-items">
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Aceitou notificações de MFA durante conversas telefônicas</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Não seguiu protocolo de segurança da empresa</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="list-icon">•</span>
+                            <span>Suporte legítimo NUNCA pede para aceitar MFA por telefone</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- O que fazer -->
+            <div class="tips-section">
+                <h3>✅ O Que Fazer na Prática</h3>
+                
+                <h4 style="color: #1e5c96; font-size: 14px; margin-top: 15px; margin-bottom: 10px;"><strong>Hoje Mesmo:</strong></h4>
+                <div class="action-list">
+                    <div class="action-item">
+                        <span class="action-check">1.</span>
+                        <span><strong>Verifique</strong> se salva senhas no navegador pessoal</span>
+                    </div>
+                    <div class="action-item">
+                        <span class="action-check">2.</span>
+                        <span><strong>Procure</strong> credenciais corporativas e remova</span>
+                    </div>
+                    <div class="action-item">
+                        <span class="action-check">3.</span>
+                        <span><strong>Instale</strong> um gerenciador de senhas seguro</span>
+                    </div>
+                    <div class="action-item">
+                        <span class="action-check">4.</span>
+                        <span><strong>Teste</strong> se suas contas foram vazadas em <a href="https://haveibeenpwned.com" class="website" target="_blank">haveibeenpwned.com</a></span>
+                    </div>
+                </div>
+                
+                <h4 style="color: #1e5c96; font-size: 14px; margin-top: 15px; margin-bottom: 10px;"><strong>Esta Semana:</strong></h4>
+                <div class="action-list">
+                    <div class="action-item">
+                        <span class="action-check">1.</span>
+                        <span><strong>Migre</strong> todas as senhas corporativas para o gerenciador</span>
+                    </div>
+                    <div class="action-item">
+                        <span class="action-check">2.</span>
+                        <span><strong>Crie</strong> senhas únicas e fortes para cada conta</span>
+                    </div>
+                    <div class="action-item">
+                        <span class="action-check">3.</span>
+                        <span><strong>Configure</strong> autenticação de dois fatores onde possível</span>
+                    </div>
+                    <div class="action-item">
+                        <span class="action-check">4.</span>
+                        <span><strong>Treine</strong> seus colegas/família sobre vishing</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fact Box -->
+            <div class="fact-box">
+                <h3>🤯 Por Que Este Caso é Importante?</h3>
+                <p><strong>Se aconteceu com a Cisco...</strong></p>
+                <div class="list-items">
+                    <div class="list-item">
+                        <span class="list-icon">•</span>
+                        <span>Empresa <strong>especialista</strong> em segurança cibernética</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">•</span>
+                        <span><strong>Bilhões de dólares</strong> investidos em segurança</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">•</span>
+                        <span><strong>Milhares de especialistas</strong> em tecnologia</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="list-icon">•</span>
+                        <span><strong>Ainda assim foi vítima</strong> de práticas básicas inadequadas</span>
+                    </div>
+                </div>
+                <p style="margin-top: 15px;"><strong>...Pode acontecer com qualquer um!</strong></p>
+            </div>
+            
+            <!-- Link Box -->
+            <div class="link-box">
+                <h3>🔗 Quer Saber Mais?</h3>
+                <p><strong>Have I Been Pwned</strong> (verifique vazamentos):</p>
+                <a href="https://haveibeenpwned.com" class="website" target="_blank">https://haveibeenpwned.com</a>
+                <p style="margin-top: 10px;"><strong>Gerenciadores de Senha:</strong> Bitwarden, 1Password, KeePass</p>
+                <p style="margin-top: 10px;"><strong>Cisco Talos Blog:</strong></p>
+                <a href="https://blog.talosintelligence.com/recent-cyber-attack/" class="website" target="_blank">https://blog.talosintelligence.com/recent-cyber-attack/</a>
+            </div>
+            
+            <!-- Quote -->
+            <div class="quote-box">
+                "Um funcionário, credenciais mal gerenciadas, uma ligação enganosa. Não deixe isso acontecer com você."
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Te vemos na próxima edição!</strong></p>
+            <p>Fique ligado. Fique seguro. Fique consciente.</p>
+        </div>
+    </div>
+</body>
+</html>
