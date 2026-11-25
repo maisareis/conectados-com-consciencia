@@ -1,6 +1,6 @@
 # Conectados com Consciência
 
-Campanha de conscientização em segurança digital, com edições mensais pensadas para o ambiente corporativo e para o dia a dia pessoal. Aqui está todo o material que produzi: boletins, infográficos, quadrinho, roteiro de apresentação, plano de lançamento e um estudo de caso real.
+Campanha de conscientização em segurança digital, com edições mensais pensadas para o dia a dia, no trabalho e em casa. Aqui está o material que produzi: boletins, infográficos, quadrinho, um plano de um mês de campanha e um estudo de caso real.
 
 > **Sobre este repositório:** a campanha foi planejada para uma empresa, mas não chegou a ser lançada. Em vez de deixar o material parado, organizei tudo aqui como portfólio e como arquivo, para que qualquer pessoa possa reaproveitar.
 
@@ -21,31 +21,31 @@ Todas as edições seguem o mesmo formato, o que facilita produzir e manter a ca
 
 ## Edições
 
-| # | Tema | Arquivos |
+| # | Tema | Ler e baixar |
 |---|------|----------|
-| 1 | Senhas seguras | [PDF](edicoes/pdf/edicao-01-agosto-senhas.pdf) · [PDF colorido](edicoes/pdf-colorido/edicao-01-agosto-senhas.pdf) · [Word](edicoes/word/edicao-01-agosto-senhas.docx) |
-| 2 | Phishing | [PDF](edicoes/pdf/edicao-02-setembro-phishing.pdf) · [PDF colorido](edicoes/pdf-colorido/edicao-02-setembro-phishing.pdf) · [Word](edicoes/word/edicao-02-setembro-phishing.docx) |
-| 3 | Privacidade digital | [PDF](edicoes/pdf/edicao-03-outubro-privacidade.pdf) · [PDF colorido](edicoes/pdf-colorido/edicao-03-outubro-privacidade.pdf) · [Word](edicoes/word/edicao-03-outubro-privacidade.docx) |
-| 4 | Golpes em mensagens (WhatsApp e SMS) | [PDF](edicoes/pdf/edicao-04-novembro-golpes-mensagens.pdf) · [PDF colorido](edicoes/pdf-colorido/edicao-04-novembro-golpes-mensagens.pdf) · [Word](edicoes/word/edicao-04-novembro-golpes-mensagens.docx) |
-| 5 | Riscos do Wi-Fi aberto | [PDF](edicoes/pdf/edicao-05-dezembro-wifi-aberto.pdf) · [PDF colorido](edicoes/pdf-colorido/edicao-05-dezembro-wifi-aberto.pdf) · [Word](edicoes/word/edicao-05-dezembro-wifi-aberto.docx) |
-| 6 | Segurança no celular | [Word](edicoes/word/edicao-06-janeiro-celular.docx) |
-| 7 | Deepfakes e desinformação | [Word](edicoes/word/edicao-07-fevereiro-deepfakes-desinformacao.docx) |
-| 8 | Golpes financeiros online | [Word](edicoes/word/edicao-08-marco-golpes-financeiros.docx) |
-| 9 | Redes sociais: pessoal e profissional | [Word](edicoes/word/edicao-09-abril-redes-sociais.docx) |
-| 10 | Engenharia social | [Word](edicoes/word/edicao-10-maio-engenharia-social.docx) |
-| 11 | Atualizações de sistema | [Word](edicoes/word/edicao-11-junho-atualizacoes.docx) |
-| 12 | Vazamento de dados | [Word](edicoes/word/edicao-12-julho-vazamento-de-dados.docx) |
-| 13 | Backups | [Word](edicoes/word/edicao-13-agosto-backups.docx) |
+| 1 | Senhas seguras | [Ler online](posts/edicao-01-agosto-senhas.html) · [PDF](edicoes/pdf/edicao-01-agosto-senhas.pdf) · [PDF colorido](edicoes/pdf-colorido/edicao-01-agosto-senhas.pdf) |
+| 2 | Phishing | [Ler online](posts/edicao-02-setembro-phishing.html) · [PDF](edicoes/pdf/edicao-02-setembro-phishing.pdf) · [PDF colorido](edicoes/pdf-colorido/edicao-02-setembro-phishing.pdf) |
+| 3 | Privacidade digital | [Ler online](posts/edicao-03-outubro-privacidade.html) · [PDF](edicoes/pdf/edicao-03-outubro-privacidade.pdf) · [PDF colorido](edicoes/pdf-colorido/edicao-03-outubro-privacidade.pdf) |
+| 4 | Golpes em mensagens (WhatsApp e SMS) | [Ler online](posts/edicao-04-novembro-golpes-mensagens.html) · [PDF](edicoes/pdf/edicao-04-novembro-golpes-mensagens.pdf) · [PDF colorido](edicoes/pdf-colorido/edicao-04-novembro-golpes-mensagens.pdf) |
+| 5 | Riscos do Wi-Fi aberto | [Ler online](posts/edicao-05-dezembro-wifi-aberto.html) · [PDF](edicoes/pdf/edicao-05-dezembro-wifi-aberto.pdf) · [PDF colorido](edicoes/pdf-colorido/edicao-05-dezembro-wifi-aberto.pdf) |
+| 6 | Segurança no celular | [Ler online](posts/edicao-06-janeiro-celular.html) |
+| 7 | Deepfakes e desinformação | [Ler online](posts/edicao-07-fevereiro-deepfakes-desinformacao.html) |
+| 8 | Golpes financeiros online | [Ler online](posts/edicao-08-marco-golpes-financeiros.html) |
+| 9 | Redes sociais: pessoal e profissional | [Ler online](posts/edicao-09-abril-redes-sociais.html) |
+| 10 | Engenharia social | [Ler online](posts/edicao-10-maio-engenharia-social.html) |
+| 11 | Atualizações de sistema | [Ler online](posts/edicao-11-junho-atualizacoes.html) |
+| 12 | Vazamento de dados | [Ler online](posts/edicao-12-julho-vazamento-de-dados.html) |
+| 13 | Backups | [Ler online](posts/edicao-13-agosto-backups.html) |
 
-**Edições especiais** ([`edicoes/especiais/`](edicoes/especiais/)): PDF perigoso, como funciona um ataque com PDF malicioso (visão geral, sem instruções operacionais) e credenciais salvas no navegador.
+**Edições especiais:** [PDF perigoso](posts/especial-pdf-perigoso.html), [como funciona um ataque com PDF malicioso](posts/especial-ataque-com-pdf-passo-a-passo.html) (visão geral, sem instruções operacionais) e [credenciais salvas no navegador](posts/especial-credenciais-salvas.html).
 
 ## O que tem em cada pasta
 
 | Pasta | Conteúdo |
 |-------|----------|
-| [`edicoes/`](edicoes/) | Boletins em Word (1 a 13) e em PDF simples e colorido (1 a 5), mais as edições especiais |
+| [`posts/`](posts/) | Páginas do site: uma por edição, mais as edições especiais |
+| [`edicoes/`](edicoes/) | Boletins em PDF simples e colorido (edições 1 a 5) |
 | [`infograficos/`](infograficos/) | Infográficos e checklist em HTML, informativos de senhas (versão geral e técnica) e quadrinho |
-| [`apresentacao/`](apresentacao/) | Roteiro de apresentação da campanha (com tempo por slide), slides em PPTX e PDF |
 | [`plano-agosto-senhas/`](plano-agosto-senhas/) | Plano semanal de um mês de campanha, com informativos geral e técnico sobre senhas |
 | [`casos/cisco-2022/`](casos/cisco-2022/) | Estudo de caso do incidente da Cisco em 2022: senha vazada e MFA burlado |
 | [`ameacas/`](ameacas/) | Mapa dos tipos de ameaças cibernéticas |
@@ -66,11 +66,14 @@ Dá para repetir a mesma estrutura em qualquer um dos outros temas.
 
 Uma conta pessoal comprometida, uma senha reaproveitada e um MFA contornado foram o ponto de partida do incidente. A pasta [`casos/cisco-2022/`](casos/cisco-2022/) resume o caso em linguagem acessível. Para o relato técnico completo, use a fonte original da Cisco Talos: <https://blog.talosintelligence.com/recent-cyber-attack/>.
 
+## Site
+
+O repositório tem um site estático (`index.html` e `posts/`) com uma página por edição. Para publicar no GitHub Pages: em **Settings → Pages**, escolha a branch `main` e a pasta `/ (root)`. O endereço fica `https://maisareis.github.io/<nome-do-repositório>/`.
+
 ## Avisos
 
 - Este material é educativo e foi escrito em linguagem acessível. Ele simplifica propositalmente alguns conceitos técnicos.
 - As estatísticas citadas vêm das fontes indicadas em cada material. Confira a fonte original antes de reutilizar um número.
-- As metas do roteiro de apresentação (conscientização, redução de incidentes) são **propostas**. A campanha não foi lançada, então nada disso foi medido.
 - Os e-mails de exemplo nos infográficos são fictícios.
 
 ## O que eu aprendi
