@@ -1,0 +1,113 @@
+{
+ "edicoes": [
+  {
+   "n": 1,
+   "slug": "edicao-01-agosto-senhas",
+   "mes": "Agosto",
+   "titulo": "Senhas seguras",
+   "pdf": true
+  },
+  {
+   "n": 2,
+   "slug": "edicao-02-setembro-phishing",
+   "mes": "Setembro",
+   "titulo": "Phishing",
+   "pdf": true
+  },
+  {
+   "n": 3,
+   "slug": "edicao-03-outubro-privacidade",
+   "mes": "Outubro",
+   "titulo": "Privacidade digital",
+   "pdf": true
+  },
+  {
+   "n": 4,
+   "slug": "edicao-04-novembro-golpes-mensagens",
+   "mes": "Novembro",
+   "titulo": "Golpes em mensagens (WhatsApp e SMS)",
+   "pdf": true
+  },
+  {
+   "n": 5,
+   "slug": "edicao-05-dezembro-wifi-aberto",
+   "mes": "Dezembro",
+   "titulo": "Riscos do Wi-Fi aberto",
+   "pdf": true
+  },
+  {
+   "n": 6,
+   "slug": "edicao-06-janeiro-celular",
+   "mes": "Janeiro",
+   "titulo": "Segurança no celular",
+   "pdf": false
+  },
+  {
+   "n": 7,
+   "slug": "edicao-07-fevereiro-deepfakes-desinformacao",
+   "mes": "Fevereiro",
+   "titulo": "Deepfakes e desinformação",
+   "pdf": false
+  },
+  {
+   "n": 8,
+   "slug": "edicao-08-marco-golpes-financeiros",
+   "mes": "Março",
+   "titulo": "Golpes financeiros online",
+   "pdf": false
+  },
+  {
+   "n": 9,
+   "slug": "edicao-09-abril-redes-sociais",
+   "mes": "Abril",
+   "titulo": "Redes sociais: pessoal e profissional",
+   "pdf": false
+  },
+  {
+   "n": 10,
+   "slug": "edicao-10-maio-engenharia-social",
+   "mes": "Maio",
+   "titulo": "Engenharia social",
+   "pdf": false
+  },
+  {
+   "n": 11,
+   "slug": "edicao-11-junho-atualizacoes",
+   "mes": "Junho",
+   "titulo": "Atualizações de sistema",
+   "pdf": false
+  },
+  {
+   "n": 12,
+   "slug": "edicao-12-julho-vazamento-de-dados",
+   "mes": "Julho",
+   "titulo": "Vazamento de dados",
+   "pdf": false
+  },
+  {
+   "n": 13,
+   "slug": "edicao-13-agosto-backups",
+   "mes": "Agosto",
+   "titulo": "Backups",
+   "pdf": false
+  }
+ ],
+ "extras": [
+  {
+   "slug": "especial-pdf-perigoso",
+   "titulo": "PDF pode ser perigoso?"
+  },
+  {
+   "slug": "especial-ataque-com-pdf-passo-a-passo",
+   "titulo": "Como funciona um ataque com PDF malicioso"
+  },
+  {
+   "slug": "especial-credenciais-salvas",
+   "titulo": "Credenciais salvas: praticidade que pode sair caro"
+  },
+  {
+   "slug": "o-que-e-a-cisco-talos",
+   "titulo": "O que é a Cisco Talos?"
+  }
+ ]
+}

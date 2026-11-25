@@ -43,7 +43,8 @@ Todas as edições seguem o mesmo formato, o que facilita produzir e manter a ca
 
 | Pasta | Conteúdo |
 |-------|----------|
-| [`posts/`](posts/) | Páginas do site: uma por edição, mais as edições especiais |
+| [`posts/`](posts/) | Páginas do site: uma por edição, mais as edições especiais (geradas) |
+| [`fonte/`](fonte/) | Textos das edições, de onde o site é gerado |
 | [`edicoes/`](edicoes/) | Boletins em PDF simples e colorido (edições 1 a 5) |
 | [`infograficos/`](infograficos/) | Infográficos e checklist em HTML, informativos de senhas (versão geral e técnica) e quadrinho |
 | [`plano-agosto-senhas/`](plano-agosto-senhas/) | Plano semanal de um mês de campanha, com informativos geral e técnico sobre senhas |
@@ -69,6 +70,8 @@ Uma conta pessoal comprometida, uma senha reaproveitada e um MFA contornado fora
 ## Site
 
 O repositório tem um site estático (`index.html` e `posts/`) com uma página por edição. Para publicar no GitHub Pages: em **Settings → Pages**, escolha a branch `main` e a pasta `/ (root)`. O endereço fica `https://maisareis.github.io/<nome-do-repositório>/`.
+
+Os textos das edições ficam em `fonte/` e o `build.py` gera as páginas (`python3 build.py`, só precisa de Python). Para mudar um texto, edite o arquivo em `fonte/` e rode o script de novo.
 
 ## Avisos
 
